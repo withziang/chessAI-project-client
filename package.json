@@ -1,20 +1,7 @@
-# Getting Started with Create React App
-
-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-- Using bootstrap for css, react-bootstrap and material UI as component
-
-## Available Scripts
-
-
-
-### `npm run start`
-
-
-### `npm run build`
-
-## Dependencies
-
-```
+{
+  "name": "chess-bot",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -39,7 +26,28 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-```
-
-## Release
-[Download](https://github.com/withziang/webDev-frontend-template-jsx-react-bootstrap/archive/refs/tags/v1.0.0.zip)
+  "scripts": {
+    "start": "set PORT=10011 && react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
