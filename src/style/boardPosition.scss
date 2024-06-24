@@ -1,0 +1,15 @@
+
+$num-classes: 8;
+
+//left button is the (0,0) but translation reference is (1,8)
+
+$referenceX : 1;
+$referenceY : 8;
+
+@for $i from 1 through $num-classes {
+  @for $j from 1 through $num-classes {
+    .board-#{$i}#{$j}{
+      transform: translate(abs($i - $referenceX)*100%, abs($j - $referenceY)*100%);
+    }
+  }
+}

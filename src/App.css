@@ -1,0 +1,57 @@
+:root{
+  --bs-form-customs-bg-main: #2b2d30;
+  --bs-form-customs-box-shadow: rgba(244, 250, 255, 0.66);
+}
+
+.h1{
+  font-size: calc(1.675rem + 1.5vw);
+
+}
+
+.h2 {
+  font-size: 3vw;
+}
+
+.h3{
+  font-size: calc(1.3rem + .6vw);
+}
+
+.h4{
+  font-size: calc(1.275rem + .3vw);
+
+}
+
+.h5 {
+  font-size: 1.25rem;
+
+}
+.h6{
+  font-size: 15px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6{
+  font-weight: 700;
+  line-height: 1.2;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+
+
+.bs-form-customs-mainBackground{
+  background-color: var(--bs-form-customs-bg-main);
+  height: 100vh;
+  width: 100%;
+}
+
+.centerXY{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.w100{
+  width: 100%;
+}
+.h100{
+  height: 100%;
+}
