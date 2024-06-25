@@ -18,7 +18,7 @@ const App = () => {
                 main: '#d2d8da',
             },
             failed: {
-                main: '#690606',
+                main: '#d50c0c',
             },
             successful: {
                 main: '#16d33b',

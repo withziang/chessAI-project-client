@@ -1,18 +1,19 @@
 .board {
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  position: relative;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    aspect-ratio: 1;
+    position: relative;
+    z-index: 0;
 }
 
 .board1{
-    background-image: url('../asset/board1.png');
+    background-image: url('../asset/board/board1.png');
 }
 
 .board2{
-    background-image: url('../asset/board2.png');
+    background-image: url('../asset/board/board2.png');
 }
 
 .carousel-inner {

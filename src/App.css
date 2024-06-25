@@ -1,11 +1,10 @@
 :root{
   --bs-form-customs-bg-main: #2b2d30;
-  --bs-form-customs-box-shadow: rgba(244, 250, 255, 0.66);
+  --bs-form-customs-box-shadow: rgba(121, 123, 124, 0.66);
 }
 
 .h1{
   font-size: calc(1.675rem + 1.5vw);
-
 }
 
 .h2 {

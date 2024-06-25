@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 // ---------------------------      Material UI Lib ----------------------------------------------------------------
 import {Box,Stack, Button} from '@mui/material'
-import Board from "../../../../component/board";
+
 // ---------------------------      Other Lib       ----------------------------------------------------------------
 
 // ---------------------------      Local Comp      ----------------------------------------------------------------
@@ -12,7 +12,7 @@ import Board from "../../../../component/board";
 
 
 
-const SelectChessBoardBackground = ({boardIndex, setBoardIndex}) => {
+const SelectChessBoardBackground = ({boardIndex, setBoardIndex,windowWidth}) => {
     // ---------------------- hooks --------------------------------------------------
     const [index, setIndex] = useState(0);
     // --------------------- Handle Function -----------------------------------------
@@ -28,20 +28,22 @@ const SelectChessBoardBackground = ({boardIndex, setBoardIndex}) => {
     return (
         <>
             <Box className="w100 h100 align-items-center" sx={{p:1, color:'white'}}>
-                <Carousel activeIndex={index} onSelect={handleSelect} interval={null} className='h100 w100 centerXY'>
+                <Carousel activeIndex={index} onSelect={handleSelect} interval={null} className='h100 w100 centerXY'
+                          controls={windowWidth > 500}>
                     <Carousel.Item className="h100 centerXY">
                         <Stack spacing={4} className="h100 centerXY">
                             <Box className="centerXY flex-column" sx={{ width: '15rem', height: '15rem' }}>
-                                <Board boardIndex={1} />
+                                <div className={`board1 board`}></div>
                             </Box>
                             <Button variant="contained" color="secondary" disabled={boardIndex === 1}
-                                    onClick={()=>{setBoardIndex(1)}}>{(boardIndex === 1)?"current":"change"}</Button>
+                                    onClick={() => {
+                                        setBoardIndex(1)}}>{(boardIndex === 1)?"current":"change"}</Button>
                         </Stack>
                     </Carousel.Item>
                     <Carousel.Item className="h100 centerXY">
                         <Stack spacing={4} className="h100 centerXY">
                             <Box className="centerXY flex-column" sx={{ width: '15rem', height: '15rem' }}>
-                                <Board boardIndex={2} />
+                                <div className={`board2 board`}></div>
                             </Box>
                             <Button variant="contained" color="secondary" disabled={boardIndex === 2}
                                     onClick={()=>{setBoardIndex(2)}}>{(boardIndex === 2)?"current":"change"}</Button>

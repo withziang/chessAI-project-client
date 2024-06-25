@@ -1,5 +1,5 @@
 // ---------------------------      React Lib       ----------------------------------------------------------------
-import {useState} from "react";
+import {useState, useEffect} from "react";
 // ---------------------------      Bootstrap Lib   ----------------------------------------------------------------
 
 // ---------------------------      Material UI Lib ----------------------------------------------------------------
@@ -21,9 +21,24 @@ const HomePage = () => {
     // ---------------------- hooks --------------------------------------------------
     const [boardIndex, setBoardIndex] = useState(1);
     const [showBackdrop, setShowBackdrop] = useState(false);
+    // eslint-disable-next-line
     const [backendConnected, setBackdropConnected] = useState(false);
     // --------------------- Handle Function -----------------------------------------
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+            setWindowHeight(window.innerHeight);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
     // --------------------- Other ---------------------------------------------------
 
     // --------------------- Function ------------------------------------------------
@@ -34,8 +49,8 @@ const HomePage = () => {
     // --------------------- HTML ----------------------------------------------------
     return (
         <>
-            <Backdrop showBackdrop={showBackdrop} setShowBackdrop={setShowBackdrop} boardIndex={boardIndex} setBoardIndex={setBoardIndex}/>
-            <div className="bs-form-customs-mainBackground">
+            <div className="bs-form-customs-mainBackground" style={{overflow: 'hidden', minWidth:'300px'}}>
+                <Backdrop showBackdrop={showBackdrop} setShowBackdrop={setShowBackdrop} boardIndex={boardIndex} setBoardIndex={setBoardIndex} windowWidth={windowWidth}/>
                 <Box sx={{height:'5%'}}>
                     <Stack direction="row">
                         <div className="d-flex justify-content-start m-2" style={{width:'20%'}}>
@@ -47,30 +62,33 @@ const HomePage = () => {
                             {(backendConnected) ?
                                 <>
                                     <FiberManualRecordIcon color="successful" size="small"/>
-                                    <h6 style={{color:'#2daf18', fontSize:'10px', margin:0}}>server connected</h6>
+                                    <h6 style={{color:'#2daf18', fontSize:'1rem', margin:0}}>server connected</h6>
                                 </>
                                 :
                                 <>
                                     <FiberManualRecordIcon color="failed" size="small"/>
-                                    <h6 style={{color: '#d50c0c', fontSize:'10px', margin:0}}>connecting to the server ...</h6>
+                                    <h6 style={{color: '#d50c0c', fontSize:'1rem', margin:0}}>connecting to the server ...</h6>
                                 </>}
                         </div>
                     </Stack>
                 </Box>
                 <Box className="centerXY" sx={{height: '87%'}}>
-                    <div className="centerXY" style={{width: '70%', height: '70%'}}>
+                    <div className="centerXY position-relative" style={{
+                        aspectRatio: 1,
+                        ...(windowHeight < windowWidth ? {height: '65%'} : {width: '70%'}),
+                    }}>
                         <Board boardIndex={boardIndex}/>
                     </div>
                 </Box>
                 <Box sx={{height: '8%'}} className="centerXY">
-                    <Stack sx={{width:'70%'}} className="centerXY" spacing={1}>
-                        <Divider variant="middle" color='white' sx={{width:'100%', height:'1px'}}/>
+                    <Stack sx={{width: '70%'}} className="centerXY" spacing={1}>
+                    <Divider variant="middle" color='white' sx={{width:'100%', height:'1px'}}/>
                         <Stack direction="row" sx={{width: '100%'}} spacing={1} className="d-flex align-items-center">
                             <IconButton aria-label="github" onClick={() => handleHyperlink('https://github.com/withziang/chessAI-project')}>
                                 <GitHubIcon color="disabled"/>
                             </IconButton>
-                            <p style={{fontSize: '10px', color: '#cdcbcb'}}>Built in 2024, open source chess bot
-                                project. By Ziang and Eric</p>
+                            <p style={{fontSize: '0.8rem', color: '#cdcbcb'}}>Built in 2024, open source chess bot
+                                project. Made by Ziang and Eric.</p>
                         </Stack>
                     </Stack>
                 </Box>

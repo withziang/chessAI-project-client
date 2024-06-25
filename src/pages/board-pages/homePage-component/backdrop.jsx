@@ -14,7 +14,7 @@ import GameMode from "./backdrop-component/gameMode";
 import SelectChessBoardBackground from "./backdrop-component/selectChessBoardBackground";
 
 
-const Backdrop = ({showBackdrop, setShowBackdrop, boardIndex, setBoardIndex}) => {
+const Backdrop = ({showBackdrop, setShowBackdrop, boardIndex, setBoardIndex,windowWidth}) => {
     // ---------------------- hooks --------------------------------------------------
     const [selectedIndex, setSelectedIndex] = useState(0);
     // --------------------- Handle Function -----------------------------------------
@@ -51,21 +51,21 @@ const Backdrop = ({showBackdrop, setShowBackdrop, boardIndex, setBoardIndex}) =>
                     </Box>
                     <Box sx={{height:'86%'}}>
                         <Stack className="h100 w100 d-flex justify-content-around" direction="row">
-                            <Box sx={{width: '20%', overflowY: 'auto', color:'white', mx:1}}>
+                            <Box sx={{width: '30%', overflowY: 'auto', color:'white', mx:1}}>
                                 <nav>
                                     <List disablePadding>
                                         <ListItem disablePadding>
                                             <ListItemButton
                                                 selected={selectedIndex === 0}
                                                 onClick={(event) => handleListItemClick(event, 0)}>
-                                                <ListItemText primaryTypographyProps={{fontSize: '13px'}}>Board background</ListItemText>
+                                                <ListItemText primaryTypographyProps={{fontSize: '1rem'}}>Board background</ListItemText>
                                             </ListItemButton>
                                         </ListItem>
                                         <ListItem disablePadding>
                                             <ListItemButton
                                                 selected={selectedIndex === 1}
                                                 onClick={(event) => handleListItemClick(event, 1)}>
-                                                <ListItemText primaryTypographyProps={{fontSize: '13px'}}>Game mode</ListItemText>
+                                                <ListItemText primaryTypographyProps={{fontSize: '1rem'}}>Game mode</ListItemText>
                                             </ListItemButton>
                                         </ListItem>
                                     </List>
@@ -74,11 +74,11 @@ const Backdrop = ({showBackdrop, setShowBackdrop, boardIndex, setBoardIndex}) =>
                             <div style={{height:'100%'}}>
                                 <Divider orientation="vertical" variant="middle" color="#ffffff"/>
                             </div>
-                            <Box sx={{width:'75%', overflowY:'auto'}}>
+                            <Box sx={{width:'65%', overflowY:'auto'}}>
                                 {(() => {
                                     switch (selectedIndex) {
                                         case 0:
-                                            return <SelectChessBoardBackground boardIndex={boardIndex} setBoardIndex={setBoardIndex}/>;
+                                            return <SelectChessBoardBackground boardIndex={boardIndex} setBoardIndex={setBoardIndex} windowWidth={windowWidth}/>;
                                         case 1:
                                             return <GameMode/>;
                                         default:

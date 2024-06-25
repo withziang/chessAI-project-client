@@ -1,41 +1,52 @@
 /*black*/
-.piece-br{
-
+.br{
+    background-image: url("../asset/piece/br.svg");
 }
-.piece-bk{
-
+.bk{
+    background-image: url("../asset/piece/bk.svg");
 }
-.piece-bb{
-
+.bb{
+    background-image: url("../asset/piece/bb.svg");
 }
-.piece-bk{
-
+.bh{
+    background-image: url("../asset/piece/bn.svg");
 }
-.piece-bq{
-
+.bq{
+    background-image: url("../asset/piece/bq.svg");
 }
-.piece-bp{
-
-}
-
-
-/*while*/
-.piece-br{
-
-}
-.piece-bk{
-
-}
-.piece-bb{
-
-}
-.piece-bk{
-
-}
-.piece-bq{
-
-}
-.piece-bp{
-
+.bp{
+    background-image: url("../asset/piece/bp.svg");
 }
 
+
+/*white*/
+.wr{
+    background-image: url("../asset/piece/wr.svg");
+}
+.wk{
+    background-image: url("../asset/piece/wk.svg");
+}
+.wb{
+    background-image: url("../asset/piece/wb.svg");
+}
+.wh{
+    background-image: url("../asset/piece/wn.svg");
+}
+.wq{
+    background-image: url("../asset/piece/wq.svg");
+}
+.wp{
+    background-image: url("../asset/piece/wp.svg");
+}
+
+.piece{
+    width : calc(100% / 8);
+    height : calc(100% / 8);
+    z-index: 2;
+    position: absolute;
+    right :0 ;
+    left :0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
